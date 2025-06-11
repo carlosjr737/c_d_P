@@ -1,0 +1,90 @@
+body {
+    font-family: sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.game-container {
+    text-align: center;
+}
+
+.card-deck {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 20px auto;
+}
+
+.card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* A mágica da animação */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Esconde as cartas que não são a ativa */
+.card:not(.active) {
+    display: none;
+}
+
+/* Classes de animação */
+.card.swiped-left {
+    transform: translateX(-150%) rotate(-30deg);
+    opacity: 0;
+}
+
+.card.swiped-right {
+    transform: translateX(150%) rotate(30deg);
+    opacity: 0;
+}
+
+.action-buttons button {
+    padding: 15px 30px;
+    margin: 0 10px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+/* Estilo para o nível da carta */
+.card .level {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.6em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.level.Aquecendo { background-color: #ffae00; }
+.level.Subindo-a-Temperatura { background-color: #ff7700; } /* Usei Subindo-a-Temperatura para ser um nome de classe válido */
+.level.Em-Chamas { background-color: #ff3c00; }
+
+#naoBtn:hover { background-color: #ff4d4d; border-color: #ff4d4d;}
+#talvezBtn:hover { background-color: #ffcc00; color: #333; border-color: #ffcc00;}
+#simBtn:hover { background-color: #4dff88; border-color: #4dff88;}
